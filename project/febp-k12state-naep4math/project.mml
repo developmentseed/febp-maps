@@ -1,0 +1,56 @@
+{
+  "bounds": [
+    -179.3408,
+    17.3087,
+    -64.2041,
+    71.7464
+  ],
+  "center": [
+    -97.6685,
+    40.8471,
+    5
+  ],
+  "format": "png",
+  "interactivity": {
+    "layer": "geo_data",
+    "template_teaser": "<span class=\"indicator{{^isValid}}-na{{/isValid}}\">\n  {{#isValid}}{{{indicator}}}%{{/isValid}}\n  {{^isValid}}N/A{{/isValid}}\n</span>\n<strong>{{{geoid}}}</strong><br />\n<span class='indicator-name'>{{{indicatorDesc}}}</span>",
+    "template_location": "/k12/{{{postcode}}}",
+    "fields": [
+      "isValid",
+      "indicator",
+      "geoid",
+      "indicatorDesc",
+      "postcode"
+    ]
+  },
+  "minzoom": 3,
+  "maxzoom": 10,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "polygon",
+      "Datasource": {
+        "type": "sqlite",
+        "file": "http://febp.newamerica.net/geo/resources/states.sqlite",
+        "table": "(select *,\n   round(naep4math * 100) as indicator,\n    naep4math <> -1 as isValid, \n    'NAEP 4th Grade Math' as indicatorDesc\n from \n   states_merc sm\ninner join\n    data.geo_data gd \n on gd.geoid = sm.geoid) as data",
+        "attachdb": "data@../../data/k12_state-1.sqlite",
+        "extent": "",
+        "id": "geo_data",
+        "project": "febp-k12state-naep4math",
+        "srs": null
+      },
+      "id": "geo_data",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "geo_data"
+    }
+  ],
+  "name": "febp-k12state-naep4math",
+  "description": "",
+  "legend": "<div class='legend-label'>0%</div><div class='legend-bar' style='background: #fffaec'> </div><div class='legend-bar' style='background: #face6c'> </div><div class='legend-bar' style='background: #f9bd4f'> </div><div class='legend-bar' style='background: #f69125'> </div><div class='legend-label'>100%</div>",
+  "attribution": ""
+}
