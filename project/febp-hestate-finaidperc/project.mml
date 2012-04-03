@@ -1,0 +1,56 @@
+{
+  "bounds": [
+    -179.231,
+    16.6362,
+    -63.2153,
+    71.4132
+  ],
+  "center": [
+    -100.6787,
+    40.4971,
+    4
+  ],
+  "format": "png",
+  "interactivity": {
+    "layer": "geo_data",
+    "template_teaser": "<span class=\"indicator{{^isValid}}-na{{/isValid}}\">\n  {{#isValid}}{{{indicator}}}%{{/isValid}}\n  {{^isValid}}N/A{{/isValid}}\n</span>\n<strong>{{{GEOID}}}</strong><br />\n<span class='indicator-name'>{{{indicatorDesc}}}</span>",
+    "template_location": "/higher-ed/{{{postcode}}}",
+    "fields": [
+      "isValid",
+      "indicator",
+      "GEOID",
+      "indicatorDesc",
+      "postcode"
+    ]
+  },
+  "minzoom": 3,
+  "maxzoom": 10,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "polygon",
+      "Datasource": {
+        "type": "sqlite",
+        "file": "http://febp.newamerica.net/geo/resources/states.sqlite",
+        "table": "(select *,\n   round(finaidperc * 100) as indicator,\n    finaidperc <> -1 as isValid, \n    'Students Receiving Financial Aid' as indicatorDesc\n from \n   states_merc sm\ninner join\n    data.geo_data gd \n on gd.geoid = sm.geoid)",
+        "attachdb": "data@../../data/higher_ed_state-1.sqlite",
+        "extent": "",
+        "id": "geo_data",
+        "project": "febp-hestate-finaidperc",
+        "srs": null
+      },
+      "id": "geo_data",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "geo_data"
+    }
+  ],
+  "name": "",
+  "description": "",
+  "legend": "<div class='legend-label'>0%</div><div class='legend-bar' style='background: #d1f2e8'> </div><div class='legend-bar' style='background: #8dd9c0'> </div><div class='legend-bar' style='background: #4bb590'> </div><div class='legend-bar' style='background: #31a177'> </div><div class='legend-label'>100%</div>",
+  "attribution": ""
+}
