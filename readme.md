@@ -5,10 +5,8 @@ are hosted on the FEBP site.
 
 ## Installing
 
-1. Clone this repository by doing :
-
-    cd ~/Documents
-    git clone git@github.com:developmentseed/febp-maps.git
+1. Clone this repository by doing
+    `cd ~/Documents; git clone git@github.com:developmentseed/febp-maps.git`
 
 1. Install tilemill by using any of the installation methods.
 1. Launch tilemill, and change the Documents path to point to the repository.
@@ -27,6 +25,7 @@ are hosted on the FEBP site.
 1. Edit the attach database field to use the new file you downloaded.
 ![attach filename](https://img.skitch.com/20120403-ja24anrrkkg6d9j3jgmd2q5r85.jpg)
 1. click on `export` and select `upload` from the dropdown
-![export](https://img.skitch.com/20120403-tecpn2n25t98eq2ypbpcws5f9p.jpg)
+  ![export](https://img.skitch.com/20120403-tecpn2n25t98eq2ypbpcws5f9p.jpg)
+
 1. Increment the version field on export form and click on save
 1. Once the map has been uploaded it will be live.
