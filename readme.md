@@ -22,6 +22,7 @@ are hosted on the FEBP site.
 1. Download the database to `~/Documents/febp-maps/data`
 1. In Tilemill, choose from the projects the map you want to update and click on the layers button on the bottom left of the screen. (you will need to repeat this for each map)
 1. Edit the `#geo_data` layer by clicking on the pencil icon next to the layer name. 
+![](https://img.skitch.com/20120405-c4kff8xi6ke7qnna6rtjfa2amj.jpg)
 1. Edit the attach database field to use the new file you downloaded.
 ![attach filename](https://img.skitch.com/20120403-ja24anrrkkg6d9j3jgmd2q5r85.jpg)
 1. click on `export` and select `upload` from the dropdown
