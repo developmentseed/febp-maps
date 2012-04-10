@@ -25,7 +25,7 @@
     ]
   },
   "minzoom": 3,
-  "maxzoom": 10,
+  "maxzoom": 11,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
     "style.mss"
@@ -36,7 +36,7 @@
       "Datasource": {
         "type": "sqlite",
         "file": "http://febp.newamerica.net/geo/resources/districts.sqlite",
-        "table": "(select *,\n   round(state4math * 100) as indicator,\n    state4math <> -1 as isValid, \n    '4th Grade Math Proficiency' as indicatorDesc\n from \n   k12_district kd\ninner join\n    data.geo_data gd \n on gd.geoid = kd.geoid) as data",
+        "table": "(select *,\n   round(state4math * 100) as indicator,\n    state4math <> '' as isValid, \n    '4th Grade Math Proficiency' as indicatorDesc\n from \n   k12_district kd\ninner join\n    data.geo_data gd \n on gd.geoid = kd.geoid where isValid) as data",
         "attachdb": "data@../../data/k12_district-1.sqlite",
         "extent": ""
       },
