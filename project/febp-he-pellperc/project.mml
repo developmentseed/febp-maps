@@ -13,10 +13,15 @@
   "format": "png",
   "interactivity": {
     "layer": "geo_data",
-    "template_teaser": "{{{school}}}",
-    "template_location": "",
+    "template_teaser": "<span class=\"indicator{{^isValid}}-na{{/isValid}}\">\n  {{#isValid}}{{{indicator}}}%{{/isValid}}\n  {{^isValid}}N/A{{/isValid}}\n</span>\n<strong>{{{school}}}</strong><br />\n<span class='indicator-name'>{{{indicatorDesc}}}</span>",
+    "template_location": "/higher-ed/{{{postcode}}}/{{{opeid}}}",
     "fields": [
-      "school"
+      "isValid",
+      "indicator",
+      "school",
+      "indicatorDesc",
+      "postcode",
+      "opeid"
     ]
   },
   "minzoom": 4,
@@ -30,8 +35,8 @@
       "geometry": "point",
       "Datasource": {
         "type": "sqlite",
-        "file": "http://febp.newamerica.net/data/geo/higher_ed-10.sqlite",
-        "table": "geo_data",
+        "file": "../../data/higher_ed-1.sqlite",
+        "table": "(select *,\n   round(pellperc * 100) as indicator,\n    pellperc <> '' as isValid, \n    'Students Receiving Pell Grants' as indicatorDesc\n from geo_data)",
         "attachdb": "",
         "extent": "",
         "id": "geo_data",
@@ -47,6 +52,6 @@
   ],
   "name": "",
   "description": "",
-  "legend": "",
+  "legend": "<div class='legend-label'>0%</div><div class='legend-bar' style='background: #d1f2e8'> </div><div class='legend-bar' style='background: #8dd9c0'> </div><div class='legend-bar' style='background: #4bb590'> </div><div class='legend-bar' style='background: #31a177'> </div><div class='legend-label'>100%</div>",
   "attribution": ""
 }
