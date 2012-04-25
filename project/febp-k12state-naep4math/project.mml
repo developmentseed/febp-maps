@@ -35,7 +35,7 @@
       "Datasource": {
         "type": "sqlite",
         "file": "http://febp.newamerica.net/geo/resources/states.sqlite",
-        "table": "(select *,\n   round(naep4math * 100) as indicator,\n    naep4math <> -1 as isValid, \n    'NAEP 4th Grade Math' as indicatorDesc\n from \n   states_merc sm\ninner join\n    data.geo_data gd \n on gd.geoid = sm.geoid) as data",
+        "table": "(select *,\n   round(naep4math * 100) as indicator,\n    naep4math <> -1 as isValid, \n    'NAEP 4th Grade Math Proficiency' as indicatorDesc\n from \n   states_merc sm\ninner join\n    data.geo_data gd \n on gd.geoid = sm.geoid) as data",
         "attachdb": "data@../../data/k12_state-1.sqlite",
         "extent": "",
         "id": "geo_data",
